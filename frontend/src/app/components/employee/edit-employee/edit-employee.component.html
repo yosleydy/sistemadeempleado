@@ -8,90 +8,191 @@
         </div>
     
     
-        <div class="flex justify-center mt-5">
+        <div class="flex justify-center mt-5 w-3/4">
             <form [formGroup]="employeeFormEdit" (ngSubmit)="onSubmit()">
                 <input type="hidden" name="_method" value="put" />
-                <div class="grip grid-cols-2 gap-2 text-center w-full pb-2">
-    
-                    <div class="flex justify-start items-center">
-                        <div class="w-2/4 justify-start"><label for="lastname" class="">Primer Apellido:</label></div>
-                        <div class="w-2/4">
-                            <input 
-                            id="lastname" 
-                            type="text" 
-                            formControlName="lastname" 
-                            class="border-2 border-gray-400 required:border-red-500 w-full"
-                        
-                            ></div>
+
+
+
+                <div class="w-full p-2 flex flex-row">
+
+                    <div class="items-center mb-2 mx-4">
+                        <div class="flex justify-start items-center grid grid-cols-2">
+                            <div class="w-3/4 justify-start items-start pr-2">
+                                <label for="lastname" class="">Primer Apellido:</label>
+                            </div>
+                            <div class="w-4/4"><input 
+                                id="lastname" 
+                                type="text" 
+                                formControlName="lastname"
+                                maxlength="20"
+                                class="border-2 border-gray-400 required:border-red-500 w-full"
+                                ></div>
+                        </div>
                     </div>
-                   
-            </div>
-
-            <div class="grip grid-cols-2 gap-2 text-center w-full pb-2">
-
-                <div class="flex justify-start items-center">
-                    <div class="w-2/4 justify-start"><label for="s_lastname" class="">Segundo Apellido:</label></div>
-                    <div class="w-2/4"> <input 
-                        id="s_lastname" 
-                        type="text" 
-                        formControlName="s_lastname"
-                        class="border-2 border-gray-400 required:border-red-500 w-full"
-                        ></div>
+            
+                    <div class="items-center mb-2 mx-4">
+                        <div class="flex justify-start items-center grid grid-cols-2">
+                            <div class="w-3/4 justify-start items-start">
+                                <label for="s_lastname" class="">Segundo Apellido:</label></div>
+                            <div class="w-4/4"> <input 
+                                id="s_lastname" 
+                                type="text" 
+                                formControlName="s_lastname" 
+                                class="border-2 border-gray-400 required:border-red-500 w-full"
+                                ></div>
+                        </div>
+                    </div>
+                            
                 </div>
-        </div>
-    
-    
-        <div class="grip grid-cols-2 gap-2 text-center w-full pb-2">
-            <div class="flex justify-start items-center">
-                <div class="w-2/4 justify-start"> <label for="name">Primer Nombre: </label></div>
-                <div class="w-2/4"> <input 
-                    id="name" 
-                    type="text" 
-                    formControlName="name" 
-                    class="border-2 border-gray-400 required:border-red-500 w-full"
-                    ></div>
-            </div>
-    </div>
-    
-    <div class="grip grid-cols-2 gap-2 text-center w-full pb-2">
-        <div class="flex justify-start items-center">
-            <div class="w-2/4 justify-start"> <label for="o_name">Otros Nombre: </label></div>
-            <div class="w-2/4"> <input 
-                id="o_name" 
-                type="text" 
-                formControlName="o_name"
-                class="border-2 border-gray-400 required:border-red-500 w-full"
-                ></div>
-        </div>
-</div>
 
 
-<div class="grip grid-cols-2 gap-2 text-center w-full pb-2">
-    <div class="flex justify-start items-center">
-        <div class="w-2/4 justify-start"> <label for="nId">N° Identificación: </label></div>
-        <div class="w-2/4"> <input 
-            id="nId" 
-            type="text" 
-            formControlName="nId" 
-            class="border-2 border-gray-400 required:border-red-500 w-full"
-            ></div>
-    </div>
-</div>
+                <div class="w-full p-2 flex flex-row">
 
-<div class="grip grid-cols-2 gap-2 text-center w-full pb-2">
-    <div class="flex justify-start items-center">
-        <div class="w-2/4 justify-start"> <label for="email">Correo electrónico: </label></div>
-        <div class="w-2/4"> <input 
-            id="email" 
-            type="text" 
-            formControlName="email" 
-            class="border-2 border-gray-400 required:border-red-500 w-full"
-            ></div>
-    </div>
-</div>
+                    <div class="items-center mb-2 mx-4">
+                        <div class="flex justify-start items-center grid grid-cols-2">
+                            <div class="w-3/4 justify-start items-start pr-2">
+                                <label for="lastname" class="">Primer Nombre:</label>
+                            </div>
+                            <div class="w-4/4"><input 
+                                id="name" 
+                                type="text" 
+                                formControlName="name"
+                                maxlength="20"
+                                class="border-2 border-gray-400 required:border-red-500 w-full"
+                                ></div>
+                        </div>
+                    </div>
+            
+                    <div class="items-center mb-2 mx-4">
+                        <div class="flex justify-start items-center grid grid-cols-2">
+                            <div class="w-3/4 justify-start items-start">
+                                <label for="o_name" class="">Otros Nombre:</label></div>
+                            <div class="w-4/4"> <input 
+                                id="o_name" 
+                                type="text" 
+                                formControlName="o_name" 
+                                class="border-2 border-gray-400 required:border-red-500 w-full"
+                                ></div>
+                        </div>
+                    </div>
+                            
+                </div>
+
+
+
+                <div class="w-full p-2 flex flex-row">
+                    <div class="items-center mb-2 mx-4 w-2/4">
+                        <div class="flex justify-start items-center grid grid-cols-2">
+                        <div class="w-full justify-start items-start"> <label for="typeID">Tipo de Identificación:</label></div>
+                        <div class="w-full items-center">
+                            <select formControlName="typeID" class="border-2 border-gray-400 required:border-red-500 w-full">
+                                <option *ngFor="let typeID of typeID" [ngValue]="typeID">
+                                  {{ typeID.name }}
+                                </option>
+                              </select>
+                            </div>
+                    </div>
+                    </div>
+                    <div class="items-center mb-2 mx-4">
+                        <div class="flex justify-start items-center grid grid-cols-2">
+                            <div class="w-3/4 justify-start items-start pr-2">
+                                <label for="nId" class="">N° Identificación:</label>
+                            </div>
+                            <div class="w-4/4"><input 
+                                id="nId" 
+                                type="text" 
+                                formControlName="nId"
+                                maxlength="20"
+                                class="border-2 border-gray-400 required:border-red-500 w-full"
+                                ></div>
+                        </div>
+                    </div>
+                  
+                </div>
+
+                <div class="w-full p-2 flex flex-row">
+                    <div class="items-center mb-2 mx-4 w-2/4">
+                        <div class="flex justify-start items-center grid grid-cols-2">
+                            <div class="w-full justify-start items-start pr-2"> <label for="email">Correo electrónico: </label></div>
+                            <div class="w-full"> <input 
+                                id="email" 
+                                type="text" 
+                                formControlName="email" 
+                                class="border-2 border-gray-400 required:border-red-500 w-full"
+                                [class.is-danger]="employeeFormEdit.get('email')?.hasError"
+                                ></div>
+                        </div>
+                    </div>
+                    <div  class="items-center mb-2 mx-4 w-2/4">
+                        <div class="flex justify-start items-center grid grid-cols-2 gap-2">
+                        <div class="w-full justify-start items-start pr-2"><label for="country">País del empleo: </label></div>
+                        <div class="w-full">
+                            <select formControlName="country" class="border-2 border-gray-400 required:border-red-500 w-full">
+                                <option *ngFor="let country of countries" [ngValue]="country">
+                                  {{ country.name }}
+                                </option>
+                              </select>
+                            
+                           </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="w-full p-2 flex flex-row">
+                    <div class="items-center mb-2 mx-4 w-2/4">
+                        <div class="flex justify-start items-center grid grid-cols-2">
+                            <div class="w-full justify-start items-start pr-2"> <label for="area">Área: </label></div>
+                            <div class="w-full"> 
+                                <select formControlName="area" class="border-2 border-gray-400 required:border-red-500 w-full">
+                                    <option *ngFor="let area of areas" [ngValue]="area">
+                                      {{ area.name }}
+                                    </option>
+                                  </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="items-center mb-2 mx-4 w-2/4">
+                        <div class="flex justify-start items-center grid grid-cols-2">
+                            <div class="w-full justify-start items-start pr-2"> <label for="status">Estado: </label></div>
+                            <div class="w-full">
+                                <input type="text" formControlName="state" class="border-2 border-gray-400 required:border-red-500 w-full" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="w-full p-2 flex flex-row">
+                    <div class="items-center mb-2 mx-4 w-2/4">
+                        <div class="flex justify-start items-center grid grid-cols-2">
+                            <div class="w-full justify-start items-start pr-2"> <label for="dateI">Fecha de ingreso: </label></div>
+                            <div class="w-full justify-end">
+                                <input 
+                                id="admision_at" 
+                                type="date" 
+                                formControlName="admision_at"
+                                class="border-2 border-gray-400 required:border-red-500 w-full"
+                                ></div>
+                        </div>
+                    </div>
+                    <div class="items-center mb-2 mx-4 w-2/4">
+                        <div class="flex justify-start items-center grid grid-cols-2">
+                            <div class="w-full justify-start items-start pr-2"> <label for="update_at">Fecha y hora de ediccion: </label></div>
+                            <div class="w-4/4"> <input 
+                                id="update_at" 
+                                type="text" 
+                                formControlName="update_at"
+                                class="border-2 border-gray-400 required:border-red-500 w-full"
+                                readonly
+                                ></div>
+                        </div>
+                    </div>
+                </div> 
+
             <div class="mt-10">
     
-                <button type="submit" class="rounded-full px-4 py-2 bg-teal-600 text-white hover:bg-teal-500">Submit</button>
+                <button type="submit" class="rounded-full px-4 py-2 bg-teal-600 text-white hover:bg-teal-500">Enviar</button>
             </div>
             </form>
         </div>

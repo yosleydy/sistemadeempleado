@@ -22,10 +22,13 @@ export class ListEmployeesComponent {
   }
 
   delete(id:number) {
+   alert('Esta seguro de eliminar')
+
+    /*
     this.employeeService.delete(id).subscribe(res => {
       this.employees = this.employees.filter(item => item.id !== id);
       console.log('Person deleted successfully!');
- })
+ })*/
   }
 
 }

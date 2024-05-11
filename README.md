@@ -8,11 +8,11 @@ Prueba Técnica
 
 Para la correcta ejecución de este proyecto, necesitas tener las siguientes tecnologías instaladas en tu ordenador.
 
-PHP
-Composer
-MySQL
-npm
-Angular
+ * PHP
+ * Composer
+ * MySQL
+ * npm
+ * Angular
 
 # instalación
 
@@ -63,10 +63,10 @@ A continuación se detallan los endpoints disponibles en la API:
 |      POST     | /api/employees                   |     Crea un empleado                         |
 |      GET      | /api/employees/{ID}              | devuelve los datos de empleado               |
 |      PUT      | /api/employees/{ID}              | Actualiza los datos de empleado              |
-|    DELETE     | /api/employees/{ID}              | Elimina el empleado con su ID especifico     |
+|    DELETE     | /api/employees/{ID}              | Elimina el empleado con su ID específico     |
 |      GET      | /api/employees/countries         | Devuelve un array de Los paises              |
-|      GET      | /api/employees/areas             | Devuelve un array de las areas               |
-|      GET      | /api/employees/state             | Devuelve un array de los estatos             |
+|      GET      | /api/employees/areas             | Devuelve un array de las áreas               |
+|      GET      | /api/employees/state             | Devuelve un array de los estados             |
 |      GET      |/api/employees/typeIdentification | Devuelve un array de el tipo de identificación|
 
 

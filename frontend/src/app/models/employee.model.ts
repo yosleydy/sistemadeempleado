@@ -11,5 +11,6 @@ export class Employee {
   state_id?: string;
   type_identification_id?: string;
   created_at?: string;
+  admision_at?: string;
   updated_at?: string;
 }

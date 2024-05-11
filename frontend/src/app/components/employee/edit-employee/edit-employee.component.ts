@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, ReactiveFormsModule,AbstractControl
 import { Employee } from '../../../models/employee.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../../../services/employee.service';
+import { TypeIdentification } from '../../../models/type-identification.model';
 @Component({
   selector: 'app-edit-employee',
   standalone: true,
@@ -11,7 +12,9 @@ import { EmployeeService } from '../../../services/employee.service';
   styleUrl: './edit-employee.component.css'
 })
 export class EditEmployeeComponent implements OnInit {
+  typeID: TypeIdentification[] = [];
 
+  date = new Date()
   id: number;
   employee: Employee;
   employeeFormEdit = new FormGroup({
@@ -21,6 +24,12 @@ export class EditEmployeeComponent implements OnInit {
     o_name:  new FormControl(''),
     nId:  new FormControl(''),
     email:  new FormControl(''),
+    admision_at:  new FormControl(''),
+    typeID:  new FormControl(''),
+    country:  new FormControl(''),
+    area:  new FormControl(''),
+    state:  new FormControl(''),
+    update_at:  new FormControl(this.date.toLocaleString()),
   });
 
   constructor( 
@@ -30,8 +39,11 @@ export class EditEmployeeComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
+    this.loadDataTypeIdentification()
+    
       this.employeeService.get(this.id).subscribe((data: Employee)=>{
         this.employee = data;
+        console.log(data)
         this.employeeFormEdit.patchValue({
           lastname: this.employee.lastname,
           s_lastname:  this.employee.s_lastname,
@@ -39,6 +51,7 @@ export class EditEmployeeComponent implements OnInit {
           o_name:  this.employee.o_name,
           nId:  this.employee.n_identification,
           email: this.employee.email,
+          admision_at: this.employee.admision_at?.split(' ')[0],
         });
       });
   }
@@ -53,6 +66,13 @@ export class EditEmployeeComponent implements OnInit {
       console.log('updated successfully!');
       this.router.navigateByUrl('employees');
  })
+  }
+
+
+  private loadDataTypeIdentification(): void {
+    this.employeeService.getAllTypeIdentification().subscribe(typeID => {
+      console.log(typeID)
+    });
   }
 
 }
