@@ -1,0 +1,58 @@
+<section>
+    <div class="flex justify-center m-10">
+        <h3 class="font-bold">Consulta de Empleados</h3>
+    </div>
+
+    <div class="flex justify-center m-5 items-center">
+        <table class="border-collapse border border-inherit">
+            <thead>
+              <tr class="bg-slate-200 text-center items-center">
+                <th class="border border-gray-300 p-2">Primer Nombre</th>
+                <th class="border border-gray-300 p-2">Otros Nombres</th>
+                <th class="border border-gray-300 p-2">Primer Apellido</th>
+                <th class="border border-gray-300 p-2">Segundo Apellido</th>
+                <th class="border border-gray-300 p-2">Tipo de Identificación</th>
+                <th class="border border-gray-300 p-2">Número de Identificación</th>
+                <th class="border border-gray-300 p-2">País del empleo</th>
+                <th class="border border-gray-300 p-2">Correo electrónico</th>
+                <th class="border border-gray-300 p-2">Estado</th>
+                <th class="border border-gray-300 p-2">Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+             
+              @if (employees.length) {
+               
+                @for(employee of employees; track employee.id){
+                  <tr class="border text-center w-full items-center">
+                    <td class="border">{{employee.name}}</td>
+                    <td class="border">{{employee.o_name}}</td>
+                    <td class="border">{{employee.lastname}}</td>
+                    <td class="border">{{employee.s_lastname}}</td>
+                    <td class="border">{{employee.type_identification_id}}</td>
+                    <td class="border">{{employee.n_identification}}</td>
+                    <td class="border">{{employee.country_id}}</td>
+                    <td class="border">{{employee.email}}</td>
+                    <td class="border">{{employee.state_id}}</td>
+                    <td class="border w-40 flex justify-center">
+                      <div class="grid grid-cols-2 gap-1 text-xs ">
+                        <div class='w-2/4 content-center'><a href="#" [routerLink]="['/employees/', employee.id]" class="rounded-full p-2 bg-teal-400 text-white hover:bg-teal-300 w-full p-1">Editar</a></div>
+                        <div class='w-2/4 content-center'><button type="button" (click)="delete(employee.id)" class="rounded-full p-2 bg-red-400 text-white hover:bg-red-300 w-15 p-1">Eliminar</button></div></div>
+                        
+                        
+                      </td>
+                    </tr>
+                    }
+            
+              }@else{
+                <tr class="border text-center w-full items-center">
+                  <td class="items-center px-4" colSpan='9'>No se encontró resultados</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+    </div>
+ </section>
+
+
+

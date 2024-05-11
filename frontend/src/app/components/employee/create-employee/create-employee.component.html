@@ -1,0 +1,256 @@
+<section>
+
+    <div class="flex justify-center mb-10">
+        <div>
+            <h3 class="font-bold">Registro de Empleados</h3>
+        </div>
+    </div>
+<div class="flex justify-center m-10">
+    <div class="flex justify-center mt-5 w-3/4">
+        <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="w-full mx-10">
+
+        <div class="w-full p-2 flex flex-row">
+
+        <div class="items-center mb-2 mx-4">
+            <div class="flex justify-start items-center grid grid-cols-2">
+                <div class="w-3/4 justify-start items-start pr-2">
+                    <label for="pLastName" class="">Primer Apellido:</label>
+                </div>
+                <div class="w-4/4"><input 
+                    id="pLastName" 
+                    type="text" 
+                    formControlName="pLastName"
+                    maxlength="20"
+                    class="border-2 border-gray-400 required:border-red-500 w-full"
+                    [class.is-danger]="employeeForm.get('pLastName')?.hasError"
+                    ></div>
+            </div>
+            <div class="flex justify-start">
+                @if (submitted && employeeForm.get('pLastName')?.errors?.['required']){
+                    <p class="text-red-500">Obligatorio</p> 
+                }
+                
+            </div>
+        </div>
+
+        <div class="items-center mb-2 mx-4">
+            <div class="flex justify-start items-center grid grid-cols-2">
+                <div class="w-3/4 justify-start items-start">
+                    <label for="sLastName" class="">Segundo Apellido:</label></div>
+                <div class="w-4/4"> <input 
+                    id="sLastName" 
+                    type="text" 
+                    formControlName="sLastName" 
+                    class="border-2 border-gray-400 required:border-red-500 w-full"
+                    [class.is-danger]="employeeForm.get('sLastName')?.hasError"
+                    ></div>
+            </div>
+            <div class="flex justify-start">
+                @if (submitted && !!employeeForm.get('sLastName')?.errors){
+                    <p class="text-red-500">Obligatorio</p> 
+                }
+            </div>
+        </div>
+                
+        </div>
+   
+        
+        <div class="w-full p-2 flex flex-row">
+            <div class="items-center mb-2 mx-4">
+            <div class="flex justify-start items-center grid grid-cols-2">
+                <div class="w-3/4 justify-start items-start pr-2"> <label for="pName">Primer Nombre: </label></div>
+                <div class="w-full"> <input 
+                    id="pName" 
+                    type="text" 
+                    formControlName="pName" 
+                    class="border-2 border-gray-400 required:border-red-500 w-full"
+                    [class.is-danger]="employeeForm.get('pName')?.hasError"
+                    ></div>
+            </div>
+            <div class="flex justify-start">
+                @if (submitted && !!employeeForm.get('pName')?.errors){
+                    <p class="text-red-500">Obligatorio</p> 
+                }
+            </div>
+            </div>
+            <div class="items-center mb-2 mx-4">
+                <div class="flex justify-start items-center grid grid-cols-2">
+                    <div class="w-3/4 justify-start items-start justify-items-start">
+                        <label for="otherNames">Otros Nombre: </label></div>
+                    <div class="w-4/4"> <input 
+                        id="otherNames" 
+                        type="text" 
+                        formControlName="otherNames" 
+                        class="border-2 border-gray-400 required:border-red-500 w-full"
+                        [class.is-danger]="employeeForm.get('otherNames')?.hasError"
+                        ></div>
+                </div>
+                <div class="flex justify-start">
+                    @if (submitted && !!employeeForm.get('otherNames')?.errors){
+                        <p class="text-red-500">Obligatorio</p> 
+                    }
+                </div>
+            </div>
+    </div>
+
+
+
+<div class="w-full p-2 flex flex-row">
+    <div class="items-center mb-2 mx-4 w-2/4">
+        <div class="flex justify-start items-center grid grid-cols-2 gap-2">
+        <div class="w-full justify-start items-start"> <label for="typeID">Tipo de Identificación:</label></div>
+        <div class="w-full items-center">
+            <select formControlName="typeID" class="border-2 border-gray-400 required:border-red-500 w-full">
+                <option *ngFor="let typeID of typeID" [ngValue]="typeID">
+                  {{ typeID.name }}
+                </option>
+              </select>
+            </div>
+    </div>
+    <div class="flex justify-start">
+        @if (submitted && !!employeeForm.get('typeID')?.errors){
+            <p class="text-red-500">Obligatorio</p> 
+        }
+    </div>
+    </div>
+    <div class="items-center mb-2 mx-4 w-2/4">
+        <div class="flex justify-start items-center grid grid-cols-2 gap-1">
+            <div class="w-full justify-start items-start pr-2"> <label for="nId">N° de Identificación: </label></div>
+            <div class="w-full"> <input 
+                id="nId" 
+                type="text" 
+                formControlName="nId" 
+                class="border-2 border-gray-400 required:border-red-500 w-full"
+                [class.is-danger]="employeeForm.get('nId')?.hasError"
+                ></div>
+        </div>
+        <div class="flex justify-start">
+            @if (submitted && !!employeeForm.get('nId')?.errors){
+                <p class="text-red-500">Obligatorio</p> 
+            }
+        </div>
+    </div>
+</div>
+
+<div class="w-full p-2 flex flex-row">
+    <div class="items-center mb-2 mx-4 w-2/4">
+        <div class="flex justify-start items-center grid grid-cols-2">
+            <div class="w-full justify-start items-start pr-2"> <label for="email">Correo electrónico: </label></div>
+            <div class="w-full"> <input 
+                id="email" 
+                type="text" 
+                formControlName="email" 
+                class="border-2 border-gray-400 required:border-red-500 w-full"
+                [class.is-danger]="employeeForm.get('email')?.hasError"
+                ></div>
+        </div>
+        <div class="flex justify-start">
+            @if (submitted && !!employeeForm.get('email')?.errors){
+                <p class="text-red-500">Obligatorio</p> 
+            }
+        </div>
+    </div>
+    <div  class="items-center mb-2 mx-4 w-2/4">
+        <div class="flex justify-start items-center grid grid-cols-2 gap-2">
+        <div class="w-full justify-start items-start pr-2"><label for="country">País del empleo: </label></div>
+        <div class="w-full">
+            <select formControlName="country" class="border-2 border-gray-400 required:border-red-500 w-full">
+                <option *ngFor="let country of countries" [ngValue]="country">
+                  {{ country.name }}
+                </option>
+              </select>
+            
+           </div>
+    </div>
+    <div class="flex justify-start">
+        @if (submitted && !!employeeForm.get('country')?.errors){
+            <p class="text-red-500">Obligatorio</p> 
+        }
+    </div>
+    </div>
+</div>
+
+
+
+<div class="w-full p-2 flex flex-row">
+    <div class="items-center mb-2 mx-4 w-2/4">
+        <div class="flex justify-start items-center grid grid-cols-2">
+            <div class="w-full justify-start items-start pr-2"> <label for="area">Área: </label></div>
+            <div class="w-full"> 
+                <select formControlName="area" class="border-2 border-gray-400 required:border-red-500 w-full">
+                    <option *ngFor="let area of areas" [ngValue]="area">
+                      {{ area.name }}
+                    </option>
+                  </select>
+            </div>
+        </div>
+        <div class="flex justify-start">
+            @if (submitted && !!employeeForm.get('area')?.errors){
+                <p class="text-red-500">Obligatorio</p> 
+            }
+        </div>
+    </div>
+    <div class="items-center mb-2 mx-4 w-2/4">
+        <div class="flex justify-start items-center grid grid-cols-2">
+            <div class="w-full justify-start items-start pr-2"> <label for="status">Estado: </label></div>
+            <div class="w-full">
+                <input type="text" formControlName="state" class="border-2 border-gray-400 required:border-red-500 w-full" readonly>
+            </div>
+        </div>
+        <div class="flex justify-start">
+            @if (submitted && !!employeeForm.get('state')?.errors){
+                <p class="text-red-500">Obligatorio</p> 
+            }
+        </div>
+    </div>
+</div>
+
+
+<div class="w-full p-2 flex flex-row">
+    <div class="items-center mb-2 mx-4 w-2/4">
+        <div class="flex justify-start items-center grid grid-cols-2">
+            <div class="w-full justify-start items-start pr-2"> <label for="dateI">Fecha de ingreso: </label></div>
+            <div class="w-full justify-end">
+                <input 
+                id="dateI" 
+                type="date" 
+                formControlName="dateI" 
+                max="{{date | date:'yyyy-MM-dd'}}"
+                class="border-2 border-gray-400 required:border-red-500 w-full"
+                [class.is-danger]="employeeForm.get('dateI')?.hasError"
+                ></div>
+        </div>
+        <div class="flex justify-start">
+            @if (submitted && !!employeeForm.get('dateI')?.errors){
+                <p class="text-red-500">Obligatorio</p> 
+            }
+        </div>
+    </div>
+    <div class="items-center mb-2 mx-4 w-2/4">
+        <div class="flex justify-start items-center grid grid-cols-2">
+            <div class="w-full justify-start items-start pr-2"> <label for="dateR">Fecha y hora de registro: </label></div>
+            <div class="w-4/4"> <input 
+                id="dateR" 
+                type="text" 
+                formControlName="dateR"
+                class="border-2 border-gray-400 required:border-red-500 w-full"
+                readonly
+                ></div>
+        </div>
+        <div class="flex justify-start">
+            @if (submitted && !!employeeForm.get('dateR')?.errors){
+                <p class="text-red-500">Obligatorio</p> 
+            }
+        </div>
+    </div>
+</div> 
+
+        <div class="mt-10">
+            <button type="submit" class="rounded-full px-4 py-2 bg-teal-600 text-white hover:bg-teal-500">Submit</button>
+        </div>
+        </form>
+    </div>
+
+      
+</div>
+</section>
